@@ -1,0 +1,32 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Api use only nodejs native deps",
+  "main": "index.js",
+  "scripts": {
+    "start:staging": "NODE_ENV=staging node index.js",
+    "start:prod": "NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angeloreis/api-pure-node.git"
+  },
+  "keywords": [
+    "nodejs",
+    "pure",
+    "nodeps",
+    "native",
+    "restful",
+    "api",
+    "json"
+  ],
+  "author": {
+    "name": "Angelo Sá de Oliveira dos Reis",
+    "email": "angelo.desenvolvedor@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angeloreis/api-pure-node/issues"
+  },
+  "homepage": "https://github.com/angeloreis/api-pure-node#readme"
+}
