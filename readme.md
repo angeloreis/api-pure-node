@@ -15,8 +15,8 @@ List of activities
   - [x] Add environment configuration
   - [x] Add HTTPS support
   - [ ] Implements Services
-    - [ ] /ping
-    - [ ] storing Data
+    - [x] /ping
+    - [x] storing Data
     - [ ] /users
     - [ ] /tokens  
     - [ ] /checks
