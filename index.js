@@ -8,8 +8,10 @@ var http = require('http');
 var https = require('https');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
-var config = require('./config');
+var config = require('./lib/config');
 var fs = require('fs');
+var handlers = require('./lib/handlers')
+var helpers = require('./lib/helpers')
 
 // Instantiate the HTTP server
 var httpServer = http.createServer(function (request, response) {
@@ -28,7 +30,7 @@ var httpsServer = https.createServer(httpsServerOptions,function (request, respo
 
 // Start the Https server, and have it listen on port
 httpsServer.listen(config.httpsPort, function () {
-    console.log(`The server is listening on port ${config.httpsPort} in ${config.envName} now. He support protocol https`);
+    console.log(`The server is listening on port ${config.httpsPort} in ${config.envName} now`);
 });
 
 
@@ -75,7 +77,7 @@ var unifiedServer = function (request, response) {
             queryStringObject,
             method,
             headers,
-            payload: buffer
+            payload: helpers.parseJsonToObject(buffer)
         }
 
         // Route the request to handler specified in the router
@@ -101,20 +103,10 @@ var unifiedServer = function (request, response) {
 }
 
 
-// Define the handlers
-var handlers = {};
 
-// Ping Handler
-handlers.ping = function(data, callback) {
-    callback(200)
-};
-
-// Not Found Handlers
-handlers.notFound = function (data, callback) {
-    callback(404);
-};
 
 // Define a request router
 var router = {
-    'ping': handlers.ping
+    ping: handlers.ping,
+    users: handlers.users
 };
