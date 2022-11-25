@@ -20,7 +20,6 @@ var httpServer = http.createServer(function (request, response) {
 var httpsServerOptions = {
     key: fs.readFileSync('./https/key.pem'),
     cert:  fs.readFileSync('./https/cert.pem')
-
 };
 
 var httpsServer = https.createServer(httpsServerOptions,function (request, response) {
@@ -105,12 +104,9 @@ var unifiedServer = function (request, response) {
 // Define the handlers
 var handlers = {};
 
-// Sample Handler
-handlers.sample = function (data, callback) {
-    // Callback a http status code, and a payload object
-    callback(200, {
-        'name': 'sample handler'
-    });
+// Ping Handler
+handlers.ping = function(data, callback) {
+    callback(200)
 };
 
 // Not Found Handlers
@@ -120,5 +116,5 @@ handlers.notFound = function (data, callback) {
 
 // Define a request router
 var router = {
-    'sample': handlers.sample
+    'ping': handlers.ping
 };
