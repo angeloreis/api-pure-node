@@ -17,7 +17,7 @@ List of activities
   - [ ] Implements Services
     - [x] /ping
     - [x] storing Data
-    - [ ] /users
+    - [x] /users
     - [ ] /tokens  
     - [ ] /checks
   - [ ] Connecting to an API
